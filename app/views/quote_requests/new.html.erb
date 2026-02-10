@@ -1,0 +1,11 @@
+<turbo-frame id="quote_request_modal">
+  <div class="bg-white rounded-xl p-12 w-full max-w-4xl relative shadow-2xl">
+    <button type="button"
+            data-action="click->quote-modal#close"
+            class="absolute top-5 right-6 text-gray-400 hover:text-gray-900 text-4xl">
+      &times;
+    </button>
+
+    <%= render "quote_requests/form", quote_request: @quote_request %>
+  </div>
+</turbo-frame>

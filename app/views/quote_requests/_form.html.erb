@@ -1,0 +1,98 @@
+<%= turbo_frame_tag "quote_form" do %>
+  <h3 class="text-xl font-bold">Request Quote</h3>
+  <hr class="mb-6 mt-2">
+
+  <%= form_with model: quote_request, url: quote_requests_path do |f| %>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+
+      <%# 1. Contact Info Section %>
+      <div class="space-y-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Personal Information</p>
+
+        <div>
+          <%= f.text_field :full_name, placeholder: "Full Name",
+              class: "w-full border rounded p-2 #{quote_request.errors[:full_name].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+          <% if quote_request.errors[:full_name].any? %>
+            <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:full_name].first %></p>
+          <% end %>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <%= f.email_field :email, placeholder: "Email Address",
+                class: "w-full border rounded p-2 #{quote_request.errors[:email].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+            <% if quote_request.errors[:email].any? %>
+              <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:email].first %></p>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.telephone_field :phone, placeholder: "Phone Number",
+                class: "w-full border rounded p-2 #{quote_request.errors[:phone].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+            <% if quote_request.errors[:phone].any? %>
+              <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:phone].first %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%# 2. Vehicle Info Section %>
+      <div class="space-y-4">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Vehicle Information</p>
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <%= f.text_field :vehicle_year, placeholder: "Year",
+                class: "w-full border rounded p-2 #{quote_request.errors[:vehicle_year].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+            <% if quote_request.errors[:vehicle_year].any? %>
+              <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:vehicle_year].first %></p>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.text_field :vehicle_make, placeholder: "Make",
+                class: "w-full border rounded p-2 #{quote_request.errors[:vehicle_make].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+            <% if quote_request.errors[:vehicle_make].any? %>
+              <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:vehicle_make].first %></p>
+            <% end %>
+          </div>
+
+          <div>
+            <%= f.text_field :vehicle_model, placeholder: "Model",
+                class: "w-full border rounded p-2 #{quote_request.errors[:vehicle_model].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+            <% if quote_request.errors[:vehicle_model].any? %>
+              <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:vehicle_model].first %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <p class="text-[10px] text-gray-400 italic mt-1">
+          Provide year, make, and model for accurate pricing.
+        </p>
+      </div>
+    </div>
+
+    <%# 3. Description Section %>
+    <div class="space-y-4 border-t pt-6">
+      <p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Issue Details</p>
+
+      <div>
+        <%= f.text_area :issue_description, placeholder: "What's wrong with the vehicle?", rows: 3,
+            class: "w-full border rounded p-2 focus:ring-2 focus:ring-red-500 outline-none #{quote_request.errors[:issue_description].any? ? 'border-red-500 bg-red-50' : 'border-gray-300'}" %>
+        <% if quote_request.errors[:issue_description].any? %>
+          <p class="text-red-500 text-xs mt-1"><%= quote_request.errors[:issue_description].first %></p>
+        <% end %>
+      </div>
+
+      <div>
+        <%= f.text_area :additional_notes, placeholder: "Any other details? (Optional)", rows: 2,
+            class: "w-full border border-gray-300 rounded p-2 text-sm text-gray-600 focus:ring-2 focus:ring-red-500 outline-none" %>
+      </div>
+    </div>
+
+    <%# 4. Submit Button %>
+    <div class="mt-8">
+      <%= f.submit "Send Quote Request",
+          class: "bg-red-600 text-white px-6 py-4 rounded hover:bg-red-700 w-full font-bold shadow-md transition-all cursor-pointer transform active:scale-[0.98]" %>
+    </div>
+  <% end %>
+<% end %>
