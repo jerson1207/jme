@@ -7,3 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# db/seeds.rb
+
+admin_email = "admin@test.com"
+admin_password = "123456"
+
+if AdminUser.exists?(email: admin_email)
+  puts "Admin user already exists with email #{admin_email}"
+else
+  AdminUser.create!(
+    email: admin_email,
+    password: admin_password,
+    password_confirmation: admin_password
+  )
+  puts "Admin user created with email #{admin_email} and password #{admin_password}"
+end
