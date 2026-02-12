@@ -1,4 +1,4 @@
-<div class="flex bg-gray-100 h-screen w-screen">
+<div class="flex bg-gray-100 ">
   <aside class="flex flex-col" :class="{'hidden sm:flex sm:flex-col': window.outerWidth > 768}">
     <a href="#" class="inline-flex items-center justify-center h-20 w-full bg-blue-600 hover:bg-blue-500 focus:bg-blue-500">
       <span class="text-white text-4xl ml-2" x-show="menu">JME</span>
@@ -106,108 +106,8 @@
           <h1 class="text-4xl font-semibold mb-2">Request Qoute</h1>
         </div>
       </div>
-      <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <div>
-            <span class="block text-2xl font-bold">62</span>
-            <span class="block text-gray-500">Pending</span>
-          </div>
-        </div>
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-          </div>
-          <div>
-            <span class="block text-2xl font-bold">6.8</span>
-            <span class="block text-gray-500">Completed</span>
-          </div>
-        </div>
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
-            </svg>
-          </div>
-          <div>
-            <span class="inline-block text-2xl font-bold">9</span>
-            <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span>
-            <span class="block text-gray-500">Cancelled</span>
-          </div>
-        </div>
-        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-          <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
-            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-          </div>
-          <div>
-            <span class="block text-2xl font-bold">83%</span>
-            <span class="block text-gray-500">Finished</span>
-          </div>
-        </div>
-      </section>
 
-      <section class="mt-6 bg-white shadow rounded-lg p-6">
-        <h2 class="text-2xl font-semibold mb-4">Quote Requests</h2>
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Full Name</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Service Requested</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">1</td>
-                <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
-                <td class="px-6 py-4 whitespace-nowrap">john@example.com</td>
-                <td class="px-6 py-4 whitespace-nowrap">0917-123-4567</td>
-                <td class="px-6 py-4 whitespace-nowrap">Oil Change</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Completed</span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">2026-02-10</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">2</td>
-                <td class="px-6 py-4 whitespace-nowrap">Jane Smith</td>
-                <td class="px-6 py-4 whitespace-nowrap">jane@example.com</td>
-                <td class="px-6 py-4 whitespace-nowrap">0922-555-7890</td>
-                <td class="px-6 py-4 whitespace-nowrap">Brake Inspection</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">2026-02-09</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">3</td>
-                <td class="px-6 py-4 whitespace-nowrap">Mark Johnson</td>
-                <td class="px-6 py-4 whitespace-nowrap">mark@example.com</td>
-                <td class="px-6 py-4 whitespace-nowrap">0933-111-2222</td>
-                <td class="px-6 py-4 whitespace-nowrap">Tire Replacement</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Cancelled</span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">2026-02-08</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
+      <%= render "quote_request", quotes: @quote_requests %>
     </main>
   </div>
 </div>
