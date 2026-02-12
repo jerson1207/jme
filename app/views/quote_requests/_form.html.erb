@@ -68,6 +68,30 @@
         <p class="text-[10px] text-gray-400 italic mt-1">
           Provide year, make, and model for accurate pricing.
         </p>
+
+<div class="mb-4" x-data="{ service: '<%= quote_request.service_type || "" %>' }">
+  <%= f.label :service_type, "Service Type", class: "block font-medium text-gray-700" %>
+
+  <%= f.select :service_type, 
+        [["Oil Change", "Oil Change"], 
+         ["Brake Service", "Brake Service"], 
+         ["Tire Replacement", "Tire Replacement"], 
+         ["Engine Repair", "Engine Repair"], 
+         ["Other", "Other"]], 
+        { prompt: "Select a service" }, 
+        { 
+          class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500",
+          "x-model": "service" # Note the quotes around x-model
+        } %>
+
+  <div class="mt-2" x-show="service === 'Other'" x-cloak x-transition>
+    <%= f.label :custom_service_type, "Please specify", class: "block text-sm text-gray-600" %>
+    <%= f.text_field :custom_service_type, 
+          placeholder: "Enter custom service",
+          class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+  </div>
+</div>
+
       </div>
     </div>
 
