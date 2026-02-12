@@ -40,6 +40,7 @@ class QuoteRequestsController < ApplicationController
       :vehicle_make,
       :vehicle_model,
       :vehicle_year,
+      :service_type,
       :issue_description,
       :additional_notes
     )

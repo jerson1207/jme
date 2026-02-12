@@ -45,4 +45,11 @@ RSpec.describe QuoteRequest, type: :model do
       end
     end
   end
+
+  describe "Service Type" do
+    it "is valid" do
+      quote_request.service_type = "Change Oil"
+      expect(quote_request).to be_valid
+    end
+  end
 end

@@ -13,6 +13,7 @@ class QuoteRequest < ApplicationRecord
               greater_than: 1885, # When the first car was invented!
               less_than_or_equal_to: ->(_req) { Time.current.year + 1 }
             }, allow_nil: true
+  validates :service_type, presence: true
 
   before_save :normalize_details
 
