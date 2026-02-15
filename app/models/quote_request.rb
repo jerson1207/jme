@@ -17,10 +17,18 @@ class QuoteRequest < ApplicationRecord
 
   before_save :normalize_details
 
+  after_create_commit :broadcast_to_admins
+
   private
 
   def normalize_details
     self.email = email.downcase.strip if email.present?
     self.phone = phone.gsub(/\D/, "") if phone.present?
+  end
+
+  def broadcast_to_admins
+    broadcast_prepend_to :quote_requests,
+    partial: "admin/dashboard/quote_request",
+    locals: { quote_request: self }
   end
 end
