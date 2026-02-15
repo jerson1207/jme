@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     path: "admin",
     path_names: {
       sign_in: "login",
+      sign_up: "signup",
       sign_out: "logout"
-    },
-    skip: [ :registration ]
+    }
 
   namespace :admin do
     root "dashboard#index"
